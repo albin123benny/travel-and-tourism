@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head><title>Registration Form</title>
+<style>
+	fieldset 
+	{
+		display: block;
+		margin-left: 200px;
+		margin-right: 200px;
+		padding-top: 0.5em;
+		padding-bottom: 0.8em;
+		padding-left: 0.9em;
+		padding-right: 0.9em;
+		border: 100px groove (internal value);
+			}
+	body {
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			background-position: center;
+			background-size: cover;
+		}
+	hr{ 
+		height: 1px;
+		background-color: white;
+		border: none;
+		h2{
+	  }
+</style>
+
+
+<script>
+	function validateForm()
+	{
+		flag=0;
+		while(flag==0)
+		{
+			var a = document.getElementById("txt").value;
+			var pat=/^[A-Za-z]+$/;
+			if (a=="" || !a.match(pat)) 
+			{
+			alert("Name not valid");
+			return false;
+			}
+			var c = document.getElementById("email").value;
+			var pat=/^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$/;
+			if (c=="" || !c.match(pat)) 
+			{
+			alert("Email not valid");
+			return false;
+			}
+			var d = document.getElementById("phno").value;
+			pat=/^\d{10}$/
+			if (d=="" || !d.match(pat)) 
+			{
+			alert("Phone number not valid");
+			return false;
+			}
+			var e = document.getElementById("uname").value;
+			var pat=/[A-Za-z]+$/;
+			if (e=="" || !e.match(pat)) 
+			{
+			alert("Username not valid");
+			return false;
+			}
+			var f = document.getElementById("pass").value;
+			var pat=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+			if (f=="" || !f.match(pat)) 
+			{
+			alert("Password not strong");
+			return false;
+			}
+			
+			var g= document.getElementById("pass2").value;
+			if(g!=f)
+			{
+			alert("Passwords donot match!!");
+			return false;
+			}
+		flag=1;
+		}
+		alert("Success!!");
+	}
+	</script>
+</head>
+<body background="rrr.jpg">
+	<center><h2> USER SIGNUP</h2></center>
+	<hr>
+	<form method="get" action=" BOOKINGSUCESS.html" onSubmit="validateForm()">
+	<fieldset><legend><b>Registration</b></legend>
+	<center>
+	<table align=center>
+	<tr>
+		<td>Name: </td><td><input type="text" name="name" id=txt ><br/></td>
+	</tr>
+
+	<tr>
+		<td>Gender:</td><td> <input type="radio" name="male" >Male<input type="radio" name="male" placeholder="gender">Female</br></td>
+	</tr>
+	
+	<tr>
+		<td>Email: </td><td><input type="email" id=email><br/></td>
+	</tr>
+	<tr>
+		<td>Phno:</td><td><input type="text" name="ph" id=phno maxlength="10" ></br></td>
+	</tr>
+	<tr>
+		<td>User Name</td>
+		<td><input type="text" name="username" id=uname>
+	</tr>
+	<tr>
+		<td>Password</td>
+		<td><input type="password" name="password" id=pass>
+	</tr>
+	<tr>
+		<td>Confirm Password</td>
+		<td><input type="password" name="password" id=pass2>
+	</tr>
+	<tr>
+		<br>
+		<br>
+		<td><input type="checkbox">Accept Terms And Conditions</td>
+	</tr>
+	<tr>
+		<td><input style="width:100%" type="submit" value="SUBMIT"  ><br><br></br></td>
+	</tr>
+	</fieldset>
+	
+	
+</form>
+</body>
+</html>

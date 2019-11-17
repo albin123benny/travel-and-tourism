@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="style/style.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<style>
+	body{
+		background-image:url("images/image.jpeg");
+		background-repeat:none;
+    	background-size:cover;
+    	background-position:center;
+	}
+	</style>
+    <title>Login</title>
+</head>
+<!-- <script>
+function fin()
+ {
+ checkUser();
+ checkPass();
+ }
+ 
+function checkUser()
+	{
+	var x=document.getElementById("uname");
+	if(x.value == "")
+	{
+	alert("enter the username");
+	}
+	}
+function checkPass()
+	{
+	var x=document.getElementById("pass");
+	var l=/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{6,}/;
+	if(x.value == "")
+	{
+	alert("enter the password");
+	x.focus;
+	return false;
+	}
+	if(!x.value.match(l))
+	{
+	alert("enter valid password ");
+	}
+	}
+function check()
+	{
+	x1=checkUser();
+	x2=checkPass();
+	if(x1 && x2)
+	{
+	document.getElementById("form1").action="Home.html";
+	}
+	}
+</script>  -->
+<body>
+    <div class="maindiv" ><div class="container">
+        <div class="col-md-6 col-sm-12"><form action="log_val.php" method="POST" class="loginform form-group">
+            <h3 class="form-group">LOGIN</h3>
+			<div class="form-group"><input type="text" class="form-control" name="username" onblur="checkUser()" placeholder="username"></div>
+            <div class="form-group"><input type="password" name ="password" class="form-control"id="pass" onblur="checkPass()" placeholder="password"></div>
+            <div class="form-group"><input type="checkbox"> Remember me</div>
+            <div class="form-group"><input type="submit" class="form-control"></div>
+            <footer>Not a member? <a href="register.html">Sign Up now</a></footer>
+        </form></div>
+    </div></div>
+</body>
+</html>

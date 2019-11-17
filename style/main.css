@@ -1,0 +1,11 @@
+body,html
+{
+height:100%;
+}
+.bg{
+background-image:url("chris.jpeg")no-repeat;
+height:auto;
+background-position:center;
+background-size:cover;
+background-repeat:no-repeat;
+}

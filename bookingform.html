@@ -1,0 +1,134 @@
+<html>
+<head>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+	.con{
+		border-radius:10px;
+		background-color: rgba(255, 255, 255, 0.938);
+		width:500px;
+		margin:auto;
+		padding: 40px;
+	}
+body{
+	background:url("images/r.jpg");
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+h3{
+  font-family: Calibri; 
+  font-size: 45pt;         
+  font-style: italic; 
+  font-weight: bold; 
+  color:SlateBlue;
+  text-align: center; 
+  text-decoration: underline
+}
+input,textarea,select{
+	margin:3px;
+	height:30px;
+	border:none;
+	background: none;
+	border-bottom: 2px solid rgba(63, 63, 63, 0.747);
+}
+input:hover,textarea:hover,select:hover{
+	outline:none;
+}
+input[type="submit"]{
+	margin-top:20px;
+	border-radius: 20px;
+	width:90%;
+	height:30px;
+	border:none;
+	background-color: coral;
+	box-shadow:rgba(255, 127, 80, 0.712) 1px 1px 10px ;
+}
+</style>
+
+<script>
+    function val(){
+        var patterns=[
+        /^[a-zA-Z]+$/,
+        /^([A-Za-z0-9\.]{4,30})+@[a-z0-9]+.[a-z]+$/,
+        /^([6-9]{1})+([0-9]{9})$/,
+        /^[a-zA-Z\,0-9\ ]+$/];
+        var fields=["NAME","EMAIL","PHONE NO","HOUSE"];
+        for(i=0;i<=5;i++){
+            var el=document.getElementById(i).value;
+            if(el=="")
+            {
+                alert(fields[i]+" is empty");
+                return false;
+            }
+            else{
+                var patt=patterns[i];
+                if(!el.match(patt)){
+                    alert(fields[i]+" error");
+                    return false;
+                }
+            }
+        }
+       
+    }
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0!
+	var yyyy = today.getFullYear();
+	if(dd<10){
+			dd='0'+dd
+		} 
+		if(mm<10){
+			mm='0'+mm
+		} 
+
+	today = yyyy+'-'+mm+'-'+dd;
+	document.getElementById("datefield").setAttribute("min", today);
+</script>
+<body>
+<caption>  <center><h3> BOOK YOUR ADVENTURE </h3></caption></center><br><br>
+<form  action="booking.php" method="POST" onsubmit="return val()">
+	<div class="con">
+<table align="center">
+<!-- <tr>
+<th>Enter your Name </th><td><input type="txt" name="name"id ="0" /></td>
+</tr>
+
+<tr>
+<th>Enter your Email</th>
+<th> <input type="email" name="email"id="1"  /> </th>
+</tr>
+<tr>
+<th> Enter your mobile NO</th>
+<th>	<input type="number" name="phno" maxlength="10" id="2" /> </th>
+</tr>
+<tr>
+<th> Address</th>
+<th> <textarea id ="3" nmae="address" > </textarea></th>
+</tr> -->
+
+<tr>
+<th> Select your adventure type</th>
+<td>
+<select name="adv">
+<option value="adventure" >adventure </option>
+<option value="river rafting"> river rafting </option>
+<option value="paragadling"> paragadling </option>
+<option value="trucking"> trucking </option>
+<option value="off road drive"> off road drive </option>
+</select>
+<tr>
+<th> How many person</th>
+<th>	<input type="number" name="number"/> </th>
+</tr>
+<tr>
+<th> Select the Date</th>
+<th>	 <input id="datefield" type='date' min='2019-11-11' max='2019-12-12' name ="date"></input>
+</tr>
+<tr>
+<th colspan="2"> <button onclick="val()" >Book</button></th>
+</tr>
+</table>
+</div>
+</form>
+</body>
+</html>

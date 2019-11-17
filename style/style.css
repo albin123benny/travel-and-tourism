@@ -1,0 +1,30 @@
+:root{
+    --maincolor: rgb(252, 21, 252);
+}
+.maindiv{
+    background-image:url("../images/image.jpeg");
+    background-repeat:none;
+    background-size:cover;
+    background-position:center;
+    width:100vw;
+    height:100vh;
+    min-height:100%;
+}
+.loginform{
+    background-color:white;
+    border-radius:5px;
+    position:fixed;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    padding:3em;
+}
+.loginform h3{
+    display:flex;
+    justify-content: center;
+}
+.loginform input[type="submit"]{
+    background-color: var(--maincolor);
+    color:white;
+    font-weight: 500;
+}

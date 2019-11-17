@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head><title>Registration Form</title>
+<style>
+	h2{
+		padding-top:30px;
+		font-size:20px;
+		color: rgba(46, 45, 44, 0.849);
+		text-decoration: underline;
+	}
+.con{
+	top:100px;
+	position: relative;
+	width:350px;
+	margin:auto;
+	background-color: rgba(231, 231, 231, 0.863);
+	border-radius: 2px;
+	box-shadow: rgba(0, 0, 0, 0.705) 1px 1px 15px 15px;
+}
+input:hover[type="submit"]{
+	box-shadow:rgba(247, 147, 15, 0.781) 5px 5px 10px;
+}
+input{
+	margin:3px;
+	height:20px;
+	border:none;
+	background: none;
+	border-bottom: 2px solid rgba(63, 63, 63, 0.747);
+}
+input[type="checkbox"],input[type="radio"]{
+	width:15px;
+	height:15px;
+}
+input:focus{
+	outline:none;
+}
+input[type="submit"]{
+	background-color: rgb(247, 146, 15);
+	border-radius: 20px;
+	border:none;
+	height:35px;
+	box-shadow: rgba(247, 147, 15, 0.781) 1px 1px 10px;
+	font-size: 14px;
+	cursor: pointer;
+}
+body{
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 14px;
+	background:url("images/background_signup.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+	hr{ 
+		height: 1px;
+		background-color: white;
+		border: none;
+		
+	  }
+</style>
+
+
+<script>
+	function validateForm()
+	{
+		flag=0;
+		while(flag==0)
+		{
+			var a = document.getElementById("txt").value;
+			var pat=/^[A-Za-z]+$/;
+			if (a=="" || !a.match(pat)) 
+			{
+			alert("Name not valid");
+			return false;
+			}
+			var c = document.getElementById("email").value;
+			var pat=/^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$/;
+			if (c=="" || !c.match(pat)) 
+			{
+			alert("Email not valid");
+			return false;
+			}
+			var d = document.getElementById("phno").value;
+			pat=/^\d{10}$/
+			if (d=="" || !d.match(pat)) 
+			{
+			alert("Phone number not valid");
+			return false;
+			}
+			var e = document.getElementById("uname").value;
+			var pat=/^[A-Za-z]+$/;
+			if (e=="" || !e.match(pat)) 
+			{
+			alert("Username not valid");
+			return false;
+			}
+			var f = document.getElementById("pass").value;
+			var pat=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+			if (f=="" || !f.match(pat)) 
+			{
+			alert("Password not strong");
+			return false;
+			}
+			
+			var g= document.getElementById("pass2").value;
+			if(g!=f)
+			{
+			alert("Passwords donot match!!");
+			return false;
+			}
+		flag=1;
+		}
+		alert("Success!!");
+	}
+	</script>
+</head>
+<body>
+	<div class="con">
+	<center><h2> USER SIGNUP</h2></center>
+	<form action="reg_val.php" method="POST" onSubmit="return validateForm()">
+	<center>
+	<table align=center>
+	<tr>
+		<td>Name: </td><td><input type="text" name="name" id=txt ><br/></td>
+	</tr>
+
+	<tr>
+		<td>Gender:</td><td> <input type="radio" name="gender" value="male" >Male<input type="radio" name="gender" value="female">Female</br></td>
+	</tr>
+	
+	<tr>
+		<td>Email: </td><td><input type="email" id=email name="email"><br/></td>
+	</tr>
+	<tr>
+		<td>Phno:</td><td><input type="number" name="phno" id=phno ></br></td>
+	</tr>
+	<tr>
+		<td>User Name</td>
+		<td><input type="text" name="username" id=uname>
+	</tr>
+	<tr>
+		<td>Password</td>
+		<td><input type="password" name="password" id=pass>
+	</tr>
+	<tr>
+		<td>Confirm Password</td>
+		<td><input type="password" id=pass2>
+	</tr>
+	<tr>
+		<br>
+		<br>
+		<td colspan="2" align="center"><input type="checkbox">Accept Terms And Conditions</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center"><input style="width:100%" type="submit" value="Sign up"  ><br><br></br></td>
+	</tr>
+</div>
+	
+</form>
+</body>
+</html>
